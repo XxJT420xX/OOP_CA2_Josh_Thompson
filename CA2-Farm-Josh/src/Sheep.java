@@ -6,7 +6,7 @@ public class Sheep extends Animal{
 
 
     public Sheep(double weight, String type, int age, boolean male,  String name,double averageWool,double value,boolean isAlive) {
-        super(weight, type, age, male,isAlive,value);
+        super(weight, type, age, male,isAlive);
         this.name = name;
         this.averageWool = averageWool;
 

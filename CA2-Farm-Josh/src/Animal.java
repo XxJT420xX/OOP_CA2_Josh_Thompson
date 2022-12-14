@@ -12,7 +12,7 @@ public class Animal {
 
 
 
-    public Animal(double weight, String type, int age, boolean pedigree, boolean isAlive,double value) {
+    public Animal(double weight, String type, int age, boolean pedigree, boolean isAlive) {
         this.id = idGenerator.getNextId();
         this.weight = weight;
         this.type = type;

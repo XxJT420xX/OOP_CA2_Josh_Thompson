@@ -15,10 +15,10 @@ private IdGenerator idGenerator = IdGenerator.getInstance("newID.txt");
         this.milkStored = 0;
     }
 
-     MilkTank(String name, int id , double capacity,double milkStored)
+     MilkTank(String name, double capacity,double milkStored)
     {
         this.name = name;
-        this.id = id;
+        this.id = idGenerator.getNextId();
         this.capacity = capacity;
         this.milkStored =milkStored;
     }

@@ -6,7 +6,7 @@ public class DairyCow extends Animal{
     private double udderCapacity = Math.random() * (20 - 40);
 
     public DairyCow(String name, double weight, String type, int age, boolean male,boolean isAlive, double value) {
-        super(weight, type, age, male,isAlive, value);
+        super(weight, type, age, male,isAlive);
         this.name = name;
     }
     void DairyCow()

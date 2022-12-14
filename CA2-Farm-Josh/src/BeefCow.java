@@ -5,7 +5,7 @@ public class BeefCow extends Animal {
 
 
     public BeefCow( double weight, String type, int age, boolean male, String name, double amountOfBeef,boolean isAlive,double value) {
-        super(weight, type, age, male,isAlive,value);
+        super(weight, type, age, male,isAlive);
         this.name = name;
         this.amountOfBeef = amountOfBeef;
 

@@ -5,14 +5,29 @@ public class Farm {
     private int id;
     private String owner;
     private ArrayList <Animal> herd;
-    private Shed shed;
+    private ShedManager shedManager;
+    private MilkTankManager tankManager;
+    private MilkingMachineManager milkingMachineManager;
+    private AnimalManager animalManager;
     private IdGenerator idGenerator = IdGenerator.getInstance("newID.txt");
 
-    public Farm(String owner, ArrayList<Animal> herd, Shed shed, IdGenerator idGenerator) {
-        this.id = idGenerator.getNextId();
+    public Farm(int id, String owner, ArrayList<Animal> herd, ShedManager shedManager, MilkTankManager tankManager, MilkingMachineManager milkingMachineManager) {
+        this.id = id;
         this.owner = owner;
-        this.herd = herd;
-        this.shed = shed;
+        this.herd = new ArrayList<>();
+        this.shedManager = shedManager;
+        this.tankManager = tankManager;
+        this.milkingMachineManager = milkingMachineManager;
+    }
+    public Farm(int id,String owner)
+    {
+
+        this.id = id;
+        this.owner = owner;
+        this.herd = new ArrayList<>();
+        this.shedManager = new ShedManager();
+        this.tankManager = new MilkTankManager();
+        this.milkingMachineManager = new MilkingMachineManager();
     }
 
     public int getId() {
@@ -27,9 +42,7 @@ public class Farm {
         return herd;
     }
 
-    public Shed getShed() {
-        return shed;
-    }
+
 
     public void setId(int id) {
         this.id = id;
@@ -39,19 +52,12 @@ public class Farm {
         this.owner = owner;
     }
 
-    public void setShed(Shed shed) {
-        this.shed = shed;
+    @Override
+    public String toString() {
+        return "Farm{" +
+                "id=" + id +
+                ", owner='" + owner + '\'' +
+                ", herd=" + herd +
+                '}';
     }
-
-    public void addAnimal(Animal animal)
-    {
-        herd.add(animal);
-        System.out.println("The animal has been added to the herd");
-    }
-
-    public void addShed(Shed shed)
-    {
-        setShed(shed);
-    }
-
 }

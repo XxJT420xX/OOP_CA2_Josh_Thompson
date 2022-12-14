@@ -1,12 +1,25 @@
 public class MilkingMachines {
 private int id;
+private String name;
 private MilkTankManager milktankManager;
 private MilkTank milktank;
 private boolean ifMilktank;
+private IdGenerator idGenerator = IdGenerator.getInstance("newID.txt");
 
-    public MilkingMachines(int id, MilkTank milktank) {
-        this.id = id;
+    public MilkingMachines(String name,MilkTank milktank) {
+        this.id = idGenerator.getNextId();
         this.milktank = milktank;
+    }
+
+    public MilkingMachines(String name){
+        this.name = name;
+        this.id = idGenerator.getNextId();
+
+    }
+    public MilkingMachines(){
+        this.name = "Unnamed Machine";
+        this.id = idGenerator.getNextId();
+
     }
 
     public int getId() {
@@ -21,42 +34,11 @@ private boolean ifMilktank;
         return ifMilktank;
     }
 
-    MilkTank getMilkTank()
-    {
-        if(ifMilktank)
-        {
-            return milktank;
-        }
-        else
-        {
-            System.out.println("There is no Milktank connected");
-            return null;
-        }
+    public void setIfMilktank(boolean ifMilktank) {
+        this.ifMilktank = ifMilktank;
     }
 
-    void setMilktank(MilkTank tank)
-    {
-        if(ifMilktank= true)
-        {
-            System.out.println("There is already a milkTank connected");
-        }
-        else
-        {
-            ifMilktank=true;
-            System.out.println("The new milktank "+tank.getName() + "is connected");
-        }
-    }
 
-    void milkCow(DairyCow cow)
-    {
-        milktankManager.addToTank(milktank,cow.getUdderCapacity());
-        System.out.println(milktank.getMilkStored());
-    }
-
-    void milkGoat(Goat goat)
-    {
-        milktankManager.addToTank(milktank,goat.getMilkCapacity());
-    }
     @Override
     public String toString() {
         return "MilkingMachines{" +

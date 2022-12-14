@@ -4,7 +4,7 @@ public class Goat extends Animal{
     private double milkCapacity = Math.random()* (2 - 3);
 
     public Goat(double weight, String type, int age, boolean male, String name, boolean isAlive,double value) {
-        super( weight, type, age, male,isAlive,value);
+        super( weight, type, age, male,isAlive);
         this.name = name;
 
     }
